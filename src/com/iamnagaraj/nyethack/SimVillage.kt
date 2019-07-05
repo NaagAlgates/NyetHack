@@ -1,9 +1,11 @@
+package com.iamnagaraj.nyethack
+
 fun main() {
     runSimulation()
 }
 
 fun runSimulation(){
-    val greetingFunction=configureGreetingFunction()
+    val greetingFunction= configureGreetingFunction()
     println(greetingFunction("Naag"))
     println(greetingFunction("Nagaraj"))
 }

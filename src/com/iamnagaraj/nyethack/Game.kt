@@ -1,11 +1,13 @@
+package com.iamnagaraj.nyethack
+
 fun main() {
     //val name = "Madrigal"
 
-    val player = Player()
+    val player = Player("Madrigal")
     player.catFireball(5)
     val auraColor = player.auraColor()
     val healthStatus = player.formatHealthStatus()
-    printPlayerStatus(auraColor,player.isBlessed,player.name,healthStatus)
+    printPlayerStatus(auraColor, player.isBlessed, player.name, healthStatus)
 }
 
 

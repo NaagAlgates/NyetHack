@@ -1,3 +1,5 @@
+package com.iamnagaraj.nyethack
+
 import java.lang.Exception
 
 fun main() {
@@ -17,7 +19,7 @@ fun main() {
 }
 
 fun proficiencyCheck(swordJuggling:Int?){
-   /* swordJuggling?:throw IllegalStateException("Player cannot juggle swords")*/
+   /* swordJuggling?:throw IllegalStateException("com.iamnagaraj.nyethack.Player cannot juggle swords")*/
 //    swordJuggling?:throw UnSkilledSwordJugglerException()
-    checkNotNull(swordJuggling,{"Player cannot juggle swords"})
+    checkNotNull(swordJuggling,{"com.iamnagaraj.nyethack.Player cannot juggle swords"})
 }

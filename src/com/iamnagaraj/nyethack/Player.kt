@@ -1,13 +1,20 @@
-class Player {
-    var name = "madrigal"
-        get() = field.capitalize()
+package com.iamnagaraj.nyethack
+
+import java.io.File
+
+class Player(_name:String,var healthPoints:Int=100, val isBlessed:Boolean, var isImmortal:Boolean) {
+    var name = _name
+        get() = field.capitalize()+" of $homeTown"
     private set(value){
         field = value.trim()
     }
+    private val homeTown by lazy { selectHomeTown() }
 
-    var healthPoints = 89
-    var isBlessed = true
-    private val isImmortal = false
+    private fun selectHomeTown() = File("data/towns.txt").readText().split("\n").shuffled().first()
+
+    /*var healthPoints = _healthPoints
+    var isBlessed = _isBlessed
+    private val isImmortal =isImmortal*/
     fun catFireball(numFireballs: Int = 2) = println("A glass of Fireball springs into existence. (x$numFireballs)")
 
     fun formatHealthStatus()=
@@ -27,5 +34,14 @@ class Player {
         val auraVisible = isBlessed && healthPoints>50 || isImmortal
         var auraColor = if(auraVisible) "Green" else "None"
         return  auraColor
+    }
+
+    constructor(name:String):this(name,
+        isBlessed = true,
+        isImmortal = false)
+
+    init{
+        require(healthPoints>0) {"health point must be greater than zero."}
+        require(name.isNotEmpty()) {"Name cannot be empty"}
     }
 }

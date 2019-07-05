@@ -1,3 +1,5 @@
+package com.iamnagaraj.nyethack
+
 import java.io.File
 
 const val TAVERN_NAME = "Taernyl's Folly"
@@ -8,11 +10,11 @@ var uniquePatrons = mutableSetOf<String>()
 val patronGold = mutableMapOf<String, Double>()
 fun main() {
     initialize()
-    /*patronList.forEachIndexed() { index,patron ->
+    /*com.iamnagaraj.nyethack.patronList.forEachIndexed() { index,patron ->
         println("Good evening, $patron - you're #${index+1} in the line")
-        placeOrder(patron,menuList.shuffled().first())
+        com.iamnagaraj.nyethack.placeOrder(patron,com.iamnagaraj.nyethack.menuList.shuffled().first())
     }
-    menuList.forEachIndexed{index,data->
+    com.iamnagaraj.nyethack.menuList.forEachIndexed{index,data->
         println("$index $data")
     }*/
 
@@ -29,7 +31,10 @@ fun main() {
     var orderCount = 0
     while (orderCount <= 9) {
         if(uniquePatrons.count()>0) {
-            placeOrder(uniquePatrons.shuffled().first(), menuList.shuffled().first())
+            placeOrder(
+                uniquePatrons.shuffled().first(),
+                menuList.shuffled().first()
+            )
             orderCount++
         }else{
             println("Nobody in the list")
@@ -95,7 +100,7 @@ fun performPurchase(price: Double, patronName: String): Boolean {
         patronGold[patronName] = balance
         true
     } else {
-        //patronGold.remove(patronName)
+        //com.iamnagaraj.nyethack.patronGold.remove(patronName)
         false
     }
 }
