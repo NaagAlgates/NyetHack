@@ -9,6 +9,7 @@ class Player(_name:String,var healthPoints:Int=100, val isBlessed:Boolean, var i
         field = value.trim()
     }
     private val homeTown by lazy { selectHomeTown() }
+    var currentPosition = Coordinate(0,0)
 
     private fun selectHomeTown() = File("data/towns.txt").readText().split("\n").shuffled().first()
 
